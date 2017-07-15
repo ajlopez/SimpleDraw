@@ -1,0 +1,28 @@
+{
+  "name": "simpledraw",
+  "description": "Simple objects and fluent API to draw using SVG and DOM, WIP",
+  "keywords": [
+    "dom",
+    "drawing",
+    "svg",
+    "javascript"
+  ],
+  "version": "0.0.1alpha",
+  "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ajlopez/SimpleDraw.git"
+  },
+  "main": "./lib/simpledraw.js",
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "scripts": {
+    "test": "simpleunit -r ./test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "simpleunit": "0.0.7",
+    "domie": "0.0.3"
+  }
+}
