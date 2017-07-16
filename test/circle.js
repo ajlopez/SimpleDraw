@@ -29,3 +29,13 @@ exports['use stroke in options'] = function (test) {
 	test.equal(element.outerHTML, '<circle cx="10" cy="20" r="5" style="stroke: black;" />');
 };
 
+exports['use fill in options'] = function (test) {
+	var circle = sd.circle({ cx: 10, cy: 20, r: 5, stroke: 'black', fill: 'blue' });
+	var document = domie.document();
+	
+	var element = circle.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<circle cx="10" cy="20" r="5" style="stroke: black; fill: blue;" />');
+};
+
