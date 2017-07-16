@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../../lib/simpledraw.js"></script>
+</head>
+<body>
+<script>
+var width = 1200;
+var height = 600;
+var view = sd.view({ width: width, height: height });
+
+var circles = [];
+
+for (var k = 1; k <= 1000; k++)
+	circles.push(createCircle());
+	
+for (var k = 0; k < circles.length; k++)
+	view.circle(circles[k]);
+	
+var el = view.element(document);
+var body = document.getElementsByTagName('body')[0];
+var svg = view.element(document);
+body.appendChild(svg);
+
+function createCircle() {
+	return { cx: Math.floor(Math.random() * (width - 40)) + 10, cy: Math.floor(Math.random() * (height - 40)) + 10, r: 10, stroke: 'black', fill: 'blue', dx: 0, dy: 0 };
+}
+
+function calculateCircles() {
+	for (var k = 0; k < circles.length; k++)
+		circles[k].dx = circles[k].dy = 0;
+		
+	for (var k = 0; k < circles.length; k++) {
+		var x1 = circles[k].cx;
+		var y1 = circles[k].cy;
+		
+		for (var j = k + 1; j < circles.length; j++) {
+			var x2 = circles[j].cx;
+			var y2 = circles[j].cy;
+			
+			dx = x2 - x1;
+			dy = y2 - y1;
+			
+			d = dx * dx + dy * dy;
+			
+			d = d - 100;
+			
+			if (Math.abs(d) < 0.01)
+				continue;
+
+//			if (d < 0)
+//				d *= 100;
+			
+			var vx = dx / d / 1000000;
+			var vy = dy / d / 1000000;
+			
+			circles[k].dx += vx;
+			circles[k].dy += vy;
+			circles[j].dx -= vx;
+			circles[j].dy -= vy;
+		}
+	}
+	
+	var view = sd.view({ width: width, height: height });
+
+	for (var k = 0; k < circles.length; k++) {
+		circles[k].cx += circles[k].dx;
+		circles[k].cy += circles[k].dy;
+		view.circle(circles[k]);
+	}	
+	
+	body.removeChild(svg);
+	svg = view.element(document);
+	body.appendChild(svg);
+	
+	setTimeout(calculateCircles, 60000);
+}
+
+setTimeout(calculateCircles,
+	100);
+</script>
+</body>
+</html>
