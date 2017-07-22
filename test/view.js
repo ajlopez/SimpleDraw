@@ -108,3 +108,16 @@ exports['render view with rectangle and circle'] = function (test) {
 	test.equal(element.outerHTML, '<svg width="100px" height="50px"><rect x="10" y="20" width="50" height="25" /><circle cx="10" cy="20" r="5" /></svg>');
 };
 
+exports['render view with two rectangles'] = function (test) {
+	var view = sd.view({ width: 100, height: 50 })
+		.rectangle({ x: 10, y: 20, width: 50, height: 25 })
+		.rectangle({ x: 10, y: 20, width: 50, height: 25 });
+		
+	var document = domie.document();
+	
+	var element = view.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<svg width="100px" height="50px"><rect x="10" y="20" width="50" height="25" /><rect x="10" y="20" width="50" height="25" /></svg>');
+};
+
