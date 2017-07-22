@@ -82,3 +82,16 @@ exports['render view with line and rectangle'] = function (test) {
 	test.equal(element.outerHTML, '<svg width="100px" height="50px"><line x1="10" y1="20" x2="30" y2="40" /><rect x="10" y="20" width="50" height="25" /></svg>');
 };
 
+exports['render view with rectangle and line'] = function (test) {
+	var view = sd.view({ width: 100, height: 50 })
+		.rectangle({ x: 10, y: 20, width: 50, height: 25 })
+		.line({ x1: 10, y1: 20, x2: 30, y2: 40 });
+		
+	var document = domie.document();
+	
+	var element = view.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<svg width="100px" height="50px"><rect x="10" y="20" width="50" height="25" /><line x1="10" y1="20" x2="30" y2="40" /></svg>');
+};
+
