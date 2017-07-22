@@ -29,3 +29,13 @@ exports['use stroke in options'] = function (test) {
 	test.equal(element.outerHTML, '<line x1="10" y1="20" x2="30" y2="40" style="stroke: black;" />');
 };
 
+exports['use stroke and stroke width in options'] = function (test) {
+	var line = sd.line({ x1: 10, y1: 20, x2: 30, y2: 40, stroke: "black", stroke_width: 10 });
+	var document = domie.document();
+	
+	var element = line.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<line x1="10" y1="20" x2="30" y2="40" style="stroke: black; stroke-width: 10;" />');
+};
+
