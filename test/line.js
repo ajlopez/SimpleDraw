@@ -39,3 +39,13 @@ exports['use stroke and stroke width in options'] = function (test) {
 	test.equal(element.outerHTML, '<line x1="10" y1="20" x2="30" y2="40" style="stroke: black; stroke-width: 10;" />');
 };
 
+exports['use stroke and stroke opacity in options'] = function (test) {
+	var line = sd.line({ x1: 10, y1: 20, x2: 30, y2: 40, stroke: "black", stroke_opacity: 0.2 });
+	var document = domie.document();
+	
+	var element = line.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<line x1="10" y1="20" x2="30" y2="40" style="stroke: black; stroke-opacity: 0.2;" />');
+};
+
