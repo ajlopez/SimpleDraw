@@ -55,6 +55,18 @@ exports['render view with an ellipse'] = function (test) {
 	test.equal(element.outerHTML, '<svg width="100px" height="50px"><ellipse cx="10" cy="20" rx="15" ry="10" /></svg>');
 };
 
+exports['render view with text'] = function (test) {
+	var view = sd.view({ width: 100, height: 50 })
+		.text("hello, world", { x: 10, y: 20 });
+		
+	var document = domie.document();
+	
+	var element = view.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<svg width="100px" height="50px"><text x="10" y="20">hello, world</text></svg>');
+};
+
 exports['render view with line and circle'] = function (test) {
 	var view = sd.view({ width: 100, height: 50 })
 		.line({ x1: 10, y1: 20, x2: 30, y2: 40 })
