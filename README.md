@@ -16,7 +16,7 @@ TBD
 
 ## References
 
-TBD
+- [Creating a Star to Heart Animation with SVG and Vanilla JavaScript](https://css-tricks.com/creating-star-heart-animation-svg-vanilla-javascript/)
 
 ## Samples
 
