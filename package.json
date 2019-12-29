@@ -22,7 +22,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "simpleunit": "0.0.7",
-    "domie": "0.0.5"
+    "domie": "0.0.5",
+    "simpleunit": "0.0.7"
   }
 }
