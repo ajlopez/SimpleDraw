@@ -15,7 +15,7 @@
   },
   "main": "./lib/simpledraw.js",
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 6.0.0"
   },
   "scripts": {
     "test": "simpleunit -r ./test"
@@ -23,6 +23,6 @@
   "dependencies": {},
   "devDependencies": {
     "domie": "0.0.5",
-    "simpleunit": "0.0.7"
+    "simpleunit": "0.0.8"
   }
 }
