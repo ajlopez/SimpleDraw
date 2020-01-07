@@ -21,3 +21,14 @@ exports['create rectangle element'] = function (test) {
 	test.ok(element);
 	test.equal(element.outerHTML, '<rect x="10" y="20" width="50" height="25" />');
 };
+
+exports['create circle element'] = function (test) {
+	const circle = sd.element('circle', { cx: 10, cy: 20, r: 5 });
+	const document = domie.document();
+	
+	const element = circle.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<circle cx="10" cy="20" r="5" />');
+};
+
