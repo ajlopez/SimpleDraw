@@ -32,3 +32,12 @@ exports['create circle element'] = function (test) {
 	test.equal(element.outerHTML, '<circle cx="10" cy="20" r="5" />');
 };
 
+exports['create ellipse element'] = function (test) {
+	const ellipse = sd.element('ellipse', { cx: 10, cy: 20, rx: 15, ry: 10 });
+	const document = domie.document();
+	
+	const element = ellipse.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<ellipse cx="10" cy="20" rx="15" ry="10" />');
+};
