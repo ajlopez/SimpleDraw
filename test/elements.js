@@ -41,3 +41,14 @@ exports['create ellipse element'] = function (test) {
 	test.ok(element);
 	test.equal(element.outerHTML, '<ellipse cx="10" cy="20" rx="15" ry="10" />');
 };
+
+exports['create text element'] = function (test) {
+	const text = sd.element('text', { x: 10, y: 20 }, "hello, world");
+	const document = domie.document();
+	
+	const element = text.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<text x="10" y="20">hello, world</text>');
+};
+
