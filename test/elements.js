@@ -52,3 +52,13 @@ exports['create text element'] = function (test) {
 	test.equal(element.outerHTML, '<text x="10" y="20">hello, world</text>');
 };
 
+exports['create polyline element'] = function (test) {
+	const line = sd.element('polyline', { points: "10 20, 30 40, 50 60" });
+	const document = domie.document();
+	
+	const element = line.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<polyline points="10 20, 30 40, 50 60" />');
+};
+
