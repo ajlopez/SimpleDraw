@@ -38,3 +38,14 @@ exports['render rectangle with fill and fill opacity'] = function (test) {
 	test.ok(element);
 	test.equal(element.outerHTML, '<rect x="10" y="20" width="50" height="25" style="fill: blue; fill-opacity: 0.2;" />');
 };
+
+exports['render rectangle with translate'] = function (test) {
+	const rectangle = sd.rectangle({ x: 10, y: 20, width: 50, height: 25, translate: [ 10, 20 ] });
+	const document = domie.document();
+	
+	const element = rectangle.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<rect x="10" y="20" width="50" height="25" transform="translate(10, 20)" />');
+};
+
