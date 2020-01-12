@@ -49,3 +49,33 @@ exports['render rectangle with translate'] = function (test) {
 	test.equal(element.outerHTML, '<rect x="10" y="20" width="50" height="25" transform="translate(10, 20)" />');
 };
 
+exports['render rectangle with scale one dimension'] = function (test) {
+	const rectangle = sd.rectangle({ x: 10, y: 20, width: 50, height: 25, scale: 10 });
+	const document = domie.document();
+	
+	const element = rectangle.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<rect x="10" y="20" width="50" height="25" transform="scale(10)" />');
+};
+
+exports['render rectangle with scale two dimensions'] = function (test) {
+	const rectangle = sd.rectangle({ x: 10, y: 20, width: 50, height: 25, scale: [ 10, 5] });
+	const document = domie.document();
+	
+	const element = rectangle.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<rect x="10" y="20" width="50" height="25" transform="scale(10, 5)" />');
+};
+
+exports['render rectangle with translate and scale'] = function (test) {
+	const rectangle = sd.rectangle({ x: 10, y: 20, width: 50, height: 25, scale: [ 10, 5], translate: [ 1, 2 ] });
+	const document = domie.document();
+	
+	const element = rectangle.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<rect x="10" y="20" width="50" height="25" transform="translate(1, 2) scale(10, 5)" />');
+};
+
