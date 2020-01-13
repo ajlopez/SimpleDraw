@@ -19,6 +19,16 @@ exports['render simple line element'] = function (test) {
 	test.equal(element.outerHTML, '<line x1="10" y1="20" x2="30" y2="40" />');
 };
 
+exports['render simple line element with id attribute'] = function (test) {
+	const line = sd.line({ id: "l1", x1: 10, y1: 20, x2: 30, y2: 40 });
+	const document = domie.document();
+	
+	const element = line.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<line id="l1" x1="10" y1="20" x2="30" y2="40" />');
+};
+
 exports['use stroke in options'] = function (test) {
 	const line = sd.line({ x1: 10, y1: 20, x2: 30, y2: 40, stroke: "black" });
 	const document = domie.document();
