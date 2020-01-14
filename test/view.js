@@ -31,6 +31,18 @@ exports['render view with a line'] = function (test) {
 	test.equal(element.outerHTML, '<svg width="100px" height="50px"><line x1="10" y1="20" x2="30" y2="40" /></svg>');
 };
 
+exports['render view with a polyline'] = function (test) {
+	const view = sd.view({ width: 100, height: 50 })
+		.polyline({ points: "10 20, 30 40, 50 60" });
+		
+	const document = domie.document();
+	
+	const element = view.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<svg width="100px" height="50px"><polyline points="10 20, 30 40, 50 60" /></svg>');
+};
+
 exports['render view with a circle'] = function (test) {
 	const view = sd.view({ width: 100, height: 50 })
 		.circle({ cx: 10, cy: 20, r: 5 });
