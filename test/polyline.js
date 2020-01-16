@@ -19,6 +19,16 @@ exports['render simple polyline element'] = function (test) {
 	test.equal(element.outerHTML, '<polyline points="10 20, 30 40, 50 60" />');
 };
 
+exports['render simple polyline element using array points'] = function (test) {
+	const line = sd.polyline({ points: [[10, 20], [30, 40], [50, 60]] });
+	const document = domie.document();
+	
+	const element = line.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<polyline points="10 20, 30 40, 50 60" />');
+};
+
 exports['use stroke in options'] = function (test) {
 	const line = sd.polyline({ points: "10 20, 30 40, 50 60", stroke: "black" });
 	const document = domie.document();
