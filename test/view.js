@@ -157,3 +157,14 @@ exports['render view with two rectangles'] = function (test) {
 	test.equal(element.outerHTML, '<svg width="100px" height="50px"><rect x="10" y="20" width="50" height="25" /><rect x="10" y="20" width="50" height="25" /></svg>');
 };
 
+exports['render view with an empty group'] = function (test) {
+	const view = sd.view({ width: 100, height: 50 })
+		.group({});
+		
+	const document = domie.document();
+	
+	const element = view.element(document);
+	
+	test.ok(element);
+	test.equal(element.outerHTML, '<svg width="100px" height="50px"><g /></svg>');
+};
