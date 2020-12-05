@@ -19,6 +19,7 @@ TBD
 - [Creating a Star to Heart Animation with SVG and Vanilla JavaScript](https://css-tricks.com/creating-star-heart-animation-svg-vanilla-javascript/)
 - [MPLD3 using Python to generate SVG](https://mpld3.github.io/examples/)
 - [Finding inspiration and creating SVG](https://dev.to/coffeecraftcode/finding-inspiration-and-creating-svg-3m7b)
+- [Convert SVG to JPG in Node.JS](https://cloudmersive.medium.com/convert-svg-to-jpg-in-node-js-f49dcfc1964e)
 
 ## Samples
 
